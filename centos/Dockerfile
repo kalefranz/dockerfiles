@@ -1,3 +1,19 @@
+#################################################################
+# Creates a base CentOS 6 image with Python 2.7
+#
+#                    ##        .
+#              ## ## ##       ==
+#           ## ## ## ##      ===
+#       /""""""""""""""""\___/ ===
+#  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+#       \______ o          __/
+#         \    \        __/
+#          \____\______/
+#
+# Author:    Kale Franz <kale@franz.io>
+# License:   MIT
+#################################################################
+
 FROM tianon/centos:latest
 MAINTAINER Kale Franz <kale@franz.io>
 
@@ -15,7 +31,7 @@ RUN yum -y install ncurses-devel readline-devel tk-devel
 RUN yum -y install net-tools nfs-utils openssl-devel
 RUN yum -y install git screen tmux wget zsh
 
-# fix permissions stuff
+# fix paths
 RUN echo 'Defaults  secure_path=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin' >> /etc/sudoers.d
 
 # install python 2.7
