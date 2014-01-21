@@ -34,6 +34,10 @@ RUN yum -y install git screen tmux wget zsh
 # fix paths
 RUN echo 'Defaults  secure_path=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin' >> /etc/sudoers.d
 
+# install current rsyslog
+RUN wget http://rpms.adiscon.com/v7-stable/rsyslog.repo -O /etc/yum.repos.d/rsyslog.repo - See more at: http://linuxsysconfig.com/2013/10/running-rsyslog-v7-on-centos6/#sthash.JUTduQqp.dpuf
+RUN yum -y install rsyslog*
+
 # install python 2.7
 RUN /usr/bin/curl -s 'http://www.python.org/download/releases/' | gawk 'match($0, /The current production versions are <strong>([0-9.]+)<\/strong>/, ary) {print ary[1]}' > PYTHON_VERSION
 RUN cat PYTHON_VERSION | { read VERSION; wget -O Python-${VERSION}.tar.xz http://python.org/ftp/python/${VERSION}/Python-${VERSION}.tar.xz && tar -xf Python-${VERSION}.tar.xz; }
