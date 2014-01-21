@@ -36,7 +36,7 @@ RUN echo 'Defaults  secure_path=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/s
 
 # install rsyslog v7
 RUN wget http://rpms.adiscon.com/v7-stable/rsyslog.repo -O /etc/yum.repos.d/rsyslog.repo
-RUN yum -y install rsyslog*
+RUN yum -y install rsyslog rsyslog-docs
 
 # install python 2.7
 RUN /usr/bin/curl -s 'http://www.python.org/download/releases/' | gawk 'match($0, /The current production versions are <strong>([0-9.]+)<\/strong>/, ary) {print ary[1]}' > PYTHON_VERSION
